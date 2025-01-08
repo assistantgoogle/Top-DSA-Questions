@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+class Main {
+    public static void numberToWords(int num) {
+        String[] words = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+
+        // Handle negative numbers
+        if (num < 0) {
+            System.out.print("Negative ");
+            num = -num;
+        }
+
+        // Convert the number to words
+        String numStr = Integer.toString(num);
+        for (char digit : numStr.toCharArray()) {
+            System.out.print(words[digit - '0'] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        System.out.print("Number in words: ");
+        numberToWords(num);
+    }
+}
+
+Time Complexity:
+O(d): Where 
+𝑑
+d is the number of digits in the input.
