@@ -1,0 +1,38 @@
+
+class Main {
+    
+    public static void  countVowelsConsonantsSpaces(String str)
+    {
+        str=str.toLowerCase();
+        int vowels=0;
+        int consonants=0;
+        int spaces=0;
+        for(char ch:str.toCharArray())
+        {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+    vowels++;
+}
+
+            else if(ch>='a'&& ch<='z')
+            {
+                consonants++;
+                
+            }
+            else if(ch==' ')
+            
+              {
+               
+                   spaces++;
+               }
+            
+            
+        }
+         System.out.println("Vowels: " + vowels + ", consonants: " + consonants + ", spaces: " + spaces);
+        
+    }
+    public static void main(String[] args) {
+         
+        countVowelsConsonantsSpaces("Hello World");
+        
+    }
+    }

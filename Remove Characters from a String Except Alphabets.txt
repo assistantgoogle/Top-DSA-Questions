@@ -1,0 +1,9 @@
+class RemoveNonAlphabets {
+    public static String retainAlphabets(String str) {
+        return str.replaceAll("[^a-zA-Z]", "");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Only Alphabets: " + retainAlphabets("Hello@123!!"));
+    }
+}
