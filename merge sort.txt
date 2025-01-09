@@ -1,0 +1,54 @@
+class MergeSort {
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+
+            // Sort first and second halves
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+
+            merge(arr, left, mid, right);
+        }
+    }
+
+    private static void merge(int[] arr, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        int[] leftArr = new int[n1];
+        int[] rightArr = new int[n2];
+
+        // Copy data to temporary arrays
+        System.arraycopy(arr, left, leftArr, 0, n1);
+        System.arraycopy(arr, mid + 1, rightArr, 0, n2);
+
+        int i = 0, j = 0, k = left;
+
+        while (i < n1 && j < n2) {
+            if (leftArr[i] <= rightArr[j]) {
+                arr[k++] = leftArr[i++];
+            } else {
+                arr[k++] = rightArr[j++];
+            }
+        }
+
+        // Copy remaining elements of leftArr[] if any
+        while (i < n1) {
+            arr[k++] = leftArr[i++];
+        }
+
+        // Copy remaining elements of rightArr[] if any
+        while (j < n2) {
+            arr[k++] = rightArr[j++];
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6, 7};
+        mergeSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted array: " + java.util.Arrays.toString(arr));
+    }
+}
+Time Complexity:
+Worst Case: O(n²) (if the pivot is the smallest or largest element)
+Average and Best Case: O(n log n)
