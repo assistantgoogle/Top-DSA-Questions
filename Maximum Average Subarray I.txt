@@ -1,0 +1,29 @@
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+   ////[1,12,-5,-6,50,3]////
+
+   int sum=0;
+   int max=0;
+   for(int i=0;i<k;i++)
+   {
+    sum+=nums[i];
+   
+
+   }
+    max=sum;
+   int lowindex=0;
+   int lastindex=k;
+   while(lastindex<nums.length)
+   {
+    sum-=nums[lowindex];
+    lowindex++;
+    sum+=nums[lastindex];
+    lastindex++;
+      max=Math.max(sum,max);
+   }
+   return (double)max/k;
+
+
+
+    }
+}
