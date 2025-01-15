@@ -1,0 +1,43 @@
+xample 1:
+
+Input: s = "abciiidef", k = 3
+Output: 3
+Explanation: The substring "iii" contains 3 vowel letters.
+
+class Solution {
+    public int maxVowels(String s, int k) {
+        
+        HashSet<Character> vowels=new HashSet<>();
+        vowels.add('a');
+        vowels.add('e');
+        vowels.add('i');
+        vowels.add('o');
+        vowels.add('u');
+        int maxvowel=0;
+        int windowvowel=0;
+        for(int i=0;i<k;i++)
+        {
+            if(vowels.contains(s.charAt(i)))
+            {
+                windowvowel++;
+            }
+        }
+        maxvowel=windowvowel;
+        for(int i=k;i<s.length();i++)
+        {
+            if(vowels.contains(s.charAt(i-k)))
+            {
+                windowvowel--;
+
+            }
+            if(vowels.contains(s.charAt(i)))
+            {
+                windowvowel++;
+            }
+
+            maxvowel=Math.max(windowvowel,maxvowel);
+        }
+        return maxvowel;
+
+    }
+}
