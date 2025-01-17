@@ -1,0 +1,35 @@
+Example 1:
+
+Input: n = 10, pick = 6
+Output: 6
+
+
+public class Solution extends GuessGame {
+    public int guessNumber(int n) {
+        int i=1;
+        int j=n;
+        while(i<=j)
+        {
+            
+            int mid=i+(j-i)/2;
+            int result=guess(mid);
+
+            if(result==0)
+            {
+                return mid;
+            }
+            else if(result<0)
+            {
+                j=mid-1;
+            }
+            else{
+                 i=mid+1;
+            }
+        }
+        return -1;
+
+        
+
+        
+    }
+}
