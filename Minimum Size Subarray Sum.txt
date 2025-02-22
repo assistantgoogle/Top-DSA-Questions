@@ -1,0 +1,31 @@
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        //           [2,3,1,2,4,3]
+      int low=0;
+      int high=0;
+      int currentsum=0;
+   
+
+     int minwindow=Integer.MAX_VALUE;
+
+      while(high<nums.length)
+      {
+        currentsum+=nums[high];
+        high++;
+
+      
+     
+      while(currentsum>=target)
+      {
+         int min=high-low;
+          minwindow=Math.min(minwindow,min);
+        currentsum-=nums[low];
+        low++;
+
+
+      }
+      }
+      return minwindow==Integer.MAX_VALUE?0:minwindow;
+
+    }
+}
